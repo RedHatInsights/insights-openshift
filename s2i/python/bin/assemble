@@ -12,7 +12,6 @@ set -e
 
 shopt -s dotglob
 echo "---> Installing application source ..."
-pwd
 mv /tmp/src/* ./
 
 if [[ ! -z "$UPGRADE_PIP_TO_LATEST" ]]; then
@@ -60,3 +59,4 @@ fi
 fix-permissions ./
 # set permissions for any installed artifacts
 fix-permissions /opt/app-root
+rm -rf ./*
