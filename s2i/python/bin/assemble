@@ -7,4 +7,4 @@ pip install -U pip
 echo "---> Installing application ..."
 pip install .
 # set permissions for any installed artifacts
-fix-permissions /opt/app-root
+fix-permissions /opt/app-root 2>/dev/null
