@@ -55,10 +55,8 @@ if should_collectstatic; then
   )
 fi
 
-# Fix source directory permissions
-fix-permissions ./
+rm -rf ./*
 # set permissions for any installed artifacts
 fix-permissions /opt/app-root
-rm -rf ./*
 pwd
 ls -a
