@@ -3,7 +3,7 @@
 set -e
 shopt -s dotglob
 echo "---> Installing application source ..."
-find /tmp/src -type f -depth 1 -exec cp {} ./ \;
+find /tmp/src -maxdepth 1 -type f -exec cp {} ./ \;
 mv /tmp/src/$BASE_PKG ./
 pip install -U pip
 echo "---> Installing application ..."
