@@ -3,6 +3,8 @@
 set -e
 echo "---> Installing application source ..."
 mv /tmp/src/* /opt/app-root/
+ls
+pwd
 pip install -U pip
 echo "---> Installing application ..."
 echo $OPENSHIFT_BUILD_COMMIT > $COMMIT_FILE
