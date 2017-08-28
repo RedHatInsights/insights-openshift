@@ -6,7 +6,8 @@ echo "---> Installing application source ..."
 mv /tmp/src/* ./
 pip install -U pip
 echo "---> Installing application ..."
-echo $OPENSHIFT_BUILD_COMMIT > $COMMIT_FILE
+echo $OPENSHIFT_BUILD_COMMIT > $BASE_PKG/COMMIT
+echo $OPENSHIFT_BUILD_NAME | rev | cut -d - -f 1 | rev > $BASE_PKG/RELEASE
 pip install .
 # set permissions for any installed artifacts
 fix-permissions /opt/app-root 2>/dev/null
