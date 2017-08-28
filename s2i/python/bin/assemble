@@ -3,7 +3,8 @@
 set -e
 shopt -s dotglob
 echo "---> Installing application source ..."
-mv /tmp/src/* ./
+find /tmp/src -type f -depth 1 -exec cp {} ./ \;
+mv /tmp/src/$BASE_PKG ./
 pip install -U pip
 echo "---> Installing application ..."
 echo $OPENSHIFT_BUILD_COMMIT > $BASE_PKG/COMMIT
