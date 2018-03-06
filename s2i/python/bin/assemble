@@ -2,8 +2,6 @@
 
 set -e
 shopt -s dotglob
-echo "---> Installing magic..."
-yum install -y python-magic file
 echo "---> Installing application source ..."
 find /tmp/src -maxdepth 1 -type f -exec cp {} ./ \;
 mv /tmp/src/$BASE_PKG ./
