@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+shopt -s dotglob
+echo "---> Installing application source ..."
+find /tmp/src -maxdepth 1 -type f -exec cp {} ./ \;
+mv /tmp/src/$BASE_PKG ./
+echo "---> Installing application ..."
+echo $OPENSHIFT_BUILD_COMMIT > $BASE_PKG/COMMIT
+echo $OPENSHIFT_BUILD_NAME | rev | cut -d - -f 1 | rev > $BASE_PKG/RELEASE
+pip install .
+py.test --cov=insights
+flake8
